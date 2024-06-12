@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customized Popup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f8f9fa;
+      padding: 20px;
+      border: 2px solid #007bff;
+      box-shadow: 0 4px 8px rgba(22, 21, 21, 0.1);
+      z-index: 9999;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h2>Welcome to Our Website!</h2>
+    <p>This is a custom popup window. You can pay me in dollars to remove this popup.</p>
+    <p>Call your dad</p>
+    <h1>I can display anything i want </h1>
+</div>
+
+<!-- Content script to handle key and click events -->
+
+<script>
+      // "matches": ["<all_urls>"],
+    // Prevent default action of key press
+    document.addEventListener('keydown', function(event) {
+      event.preventDefault();
+    });
+
+    var currentDate = new Date().toDateString();
+    var targetDate = new Date('Mon Jun 10 2024');
+        console.log(currentDate, targetDate)
+
+    if (currentDate.getTime() > targetDate.getTime()) {
+    // Show the popup if the current date is after the target date
+    document.getElementById('popup').style.display = 'block';
+  }
+
+    // Prevent default action of click
+    document.addEventListener('click', function(event) {
+      event.preventDefault();
+    });
+  </script>
+
+</body>
+</html>

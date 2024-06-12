@@ -1,0 +1,24 @@
+
+{
+    "manifest_version": 3,
+    "name": "AutoPopup",
+    "version": "1.0",
+    "description": "Automatically displays a popup every 10 seconds in full-screen mode and disables keys.",
+    "permissions": ["tabs", "fullscreen"],
+    "background": {
+     "service_worker":"background.js"
+    },
+    "content_scripts": [
+      {
+        
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+      
+    }
+    
+  }
+  
